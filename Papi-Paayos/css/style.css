@@ -1,0 +1,345 @@
+@font-face {
+    font-family: "Might";
+    src: url("../fonts/Might.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.site-title {
+    font-family: "Might";
+    font-size: 50px;
+}
+
+:root {
+    --ink: #0f1629;          /* deep navy, main dark color */
+    --indigo: #1f2a6b;       /* mid navy-indigo */
+    --violet: #5b46b5;       /* muted purple */
+    --blue: #3f6fd8;         /* calm tech blue */
+    --blue-soft: #e6ecfb;    /* very light blue tint */
+    --violet-soft: #ece8f8;  /* very light purple tint */
+    --mist: #f4f6fb;         /* section background */
+    --text: #2c3550;         /* body text */
+    --muted: #66708c;        /* secondary text */
+    --line: #dde2ef;         /* borders */
+}
+
+body {
+    /* Any text that is NOT .site-title uses this system font stack */
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background: #ffffff;
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--ink);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+}
+
+/* Makes anchor links stop below the sticky navbar */
+section {
+    scroll-margin-top: 90px;
+}
+
+.section-pad {
+    padding: 5rem 0;
+}
+
+.section-mist {
+    background: var(--mist);
+}
+
+.section-intro {
+    max-width: 38rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.navbar-brand.site-title {
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--ink);
+}
+
+.navbar-brand.site-title:hover {
+    color: var(--violet);
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand.site-title {
+        font-size: 2rem;
+    }
+}
+
+.navbar .nav-link {
+    color: var(--text);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+    color: var(--blue);
+}
+
+.btn-tech {
+    color: #ffffff;
+    font-weight: 600;
+    border: 0;
+    padding: 0.75rem 1.6rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(135deg, var(--blue), var(--violet));
+}
+
+.btn-tech:hover,
+.btn-tech:focus {
+    color: #ffffff;
+    background: linear-gradient(135deg, #365fc0, #4d3a9f);
+}
+
+.btn-ghost {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.75rem 1.6rem;
+    border-radius: 0.6rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus {
+    color: var(--ink);
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.link-tech {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-tech:hover {
+    color: var(--violet);
+    text-decoration: underline;
+}
+
+.hero {
+    color: #d6dcf2;
+    padding: 5.5rem 0;
+    background:
+        /* faint circuit-board grid */
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(135deg, #0f1629 0%, #1f2a6b 55%, #4a3a94 100%);
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.hero .lead {
+    color: #c3cbe8;
+    max-width: 34rem;
+}
+
+.hero-points {
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem 0 0;
+    color: #c3cbe8;
+}
+
+.hero-points li {
+    padding-left: 1.7rem;
+    position: relative;
+    margin-bottom: 0.4rem;
+}
+
+.hero-points li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8fb0ff;
+    font-weight: 700;
+}
+
+/* Fake "computer screen" frame that holds the hero image */
+.device {
+    background: #0b1020;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0.9rem;
+    box-shadow: 0 24px 60px rgba(4, 8, 24, 0.55);
+    overflow: hidden;
+}
+
+.device-bar {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.65rem 0.9rem;
+    background: #161e38;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.device-bar span {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: #3b4670;
+}
+
+.service-card {
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--blue);
+    border-radius: 0.5rem;
+    padding: 1.75rem;
+}
+
+/* Each service gets a slightly different accent so the row isn't monotone */
+.service-card.accent-2 { border-top-color: #4d5fd0; }
+.service-card.accent-3 { border-top-color: var(--violet); }
+.service-card.accent-4 { border-top-color: #7a56c4; }
+
+.service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    font-size: 1.6rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--blue-soft), var(--violet-soft));
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    font-size: 1.15rem;
+}
+
+.service-card p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.product-card {
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.product-card .card-body {
+    padding: 1.25rem 1.25rem 1.4rem;
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+}
+
+.product-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.about-photo {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--line);
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+}
+
+.about-list li {
+    padding: 0.6rem 0 0.6rem 1.6rem;
+    position: relative;
+    border-top: 1px solid var(--line);
+}
+
+.about-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.15rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--violet));
+}
+
+.contact-section {
+    color: #c3cbe8;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 36px 36px,
+        linear-gradient(160deg, #0f1629 0%, #1a2360 100%);
+}
+
+.contact-section h2,
+.contact-section h3 {
+    color: #ffffff;
+}
+
+.contact-section .section-intro {
+    color: #b3bde0;
+}
+
+.steps {
+    padding-left: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.steps li {
+    margin-bottom: 0.6rem;
+    padding-left: 0.3rem;
+}
+
+.contact-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details li {
+    margin-bottom: 0.4rem;
+}
+
+.form-card {
+    background: #ffffff;
+    color: var(--text);
+    border-radius: 0.9rem;
+    padding: 2rem;
+    box-shadow: 0 24px 60px rgba(4, 8, 24, 0.45);
+}
+
+.form-card .form-label {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.form-card .form-control,
+.form-card .form-select {
+    border-color: #ccd3e6;
+    padding: 0.65rem 0.85rem;
+}
+
+.form-card .form-control:focus,
+.form-card .form-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.2rem rgba(63, 111, 216, 0.2);
+}
+
+.site-footer {
+    background: #0a0f1f;
+    color: #8b95b8;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
